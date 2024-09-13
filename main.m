@@ -19,15 +19,7 @@ Error_1 = zeros(n,1);
 Error_2 = zeros(n,1);
 Error_3 = zeros(n,1);
 tic
-xm_mic = [0,0,0;
-          0.37,0,0;
-          0,0.4,0;
-          0,-0.006,0.395;
-          0.365,0.385,0;
-          0.37,-0.006,0.395;
-          -0.002,0.395,0.395;
-          0.39,0.395,0.395];
-a = 0.4;
+
 b = 0.1;
 err = 0;    
 k = 0;
@@ -41,8 +33,7 @@ for i = 1:n
     R = [1,0,0;0,cos(theta),-sin(theta);0,sin(theta),cos(theta)];
     t = Tm - b/2 + b * rand(3,1);
 
-    for m = 1:8
-        % init(3*(m-1)+1:3*m) = rand(3,1)*a*2-a + xm_mic(m,:)';
+    for m = 1:8      
         init(3*(m-1)+1:3*m) = rand(3,1)*0.5;
     end
 
